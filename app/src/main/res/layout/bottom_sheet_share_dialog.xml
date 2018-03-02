@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:divider="@drawable/divider"
+    android:orientation="vertical"
+    android:showDividers="middle|end">
+
+    <TextView
+        android:id="@+id/share_weibo"
+        android:drawablePadding="@dimen/text_padding"
+        android:gravity="center_vertical"
+        android:drawableStart="@mipmap/icon_weibo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:text="微博分享" />
+
+    <TextView
+        android:id="@+id/share_wx"
+        android:drawablePadding="@dimen/text_padding"
+        android:gravity="center_vertical"
+        android:drawableStart="@mipmap/icon_wx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:text="微信分享" />
+
+    <TextView
+        android:id="@+id/share_quanzi"
+        android:drawablePadding="@dimen/text_padding"
+        android:gravity="center_vertical"
+        android:drawableStart="@mipmap/icon_quanzi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:text="朋友圈分享" />
+
+    <TextView
+        android:id="@+id/share_facebook"
+        android:drawablePadding="@dimen/text_padding"
+        android:gravity="center_vertical"
+        android:drawableStart="@mipmap/icon_facebook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:text="Facebook分享" />
+
+    <TextView
+        android:id="@+id/share_twitter"
+        android:drawablePadding="@dimen/text_padding"
+        android:gravity="center_vertical"
+        android:drawableStart="@mipmap/icon_twitter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:text="Twitter分享" />
+
+</LinearLayout>

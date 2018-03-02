@@ -74,7 +74,6 @@ public class ToolbarActivity extends AppCompatActivity {
             return false;
         });
 
-
     }
 
 

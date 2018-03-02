@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         findViewById(R.id.btn_toolbar).setOnClickListener(this);
+        findViewById(R.id.btn_bottom_sheet_dialog).setOnClickListener(this);
     }
 
     @Override
@@ -20,6 +21,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.btn_toolbar:
                 startActivity(new Intent(this, ToolbarActivity.class));
+                break;
+            case R.id.btn_bottom_sheet_dialog:
+                startActivity(new Intent(this, BottomSheetDialogActivity.class));
                 break;
         }
     }

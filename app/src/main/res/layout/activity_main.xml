@@ -40,6 +40,16 @@
                 android:padding="@dimen/text_padding"
                 android:text="Toolbar使用示例" />
 
+            <TextView
+                android:textSize="18sp"
+                android:textColor="#333333"
+                android:id="@+id/btn_bottom_sheet_dialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/text_padding"
+                android:text="BottomSheetDialog使用示例" />
+
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
