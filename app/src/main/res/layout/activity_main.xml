@@ -50,6 +50,26 @@
                 android:padding="@dimen/text_padding"
                 android:text="BottomSheetDialog使用示例" />
 
+            <TextView
+                android:textSize="18sp"
+                android:textColor="#333333"
+                android:id="@+id/btn_app_bar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/text_padding"
+                android:text="AppbarLayout基础示例" />
+
+            <TextView
+                android:textSize="18sp"
+                android:textColor="#333333"
+                android:id="@+id/btn_collapsing_toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/text_padding"
+                android:text="CollapsingToolbarLayout基础示例" />
+
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
