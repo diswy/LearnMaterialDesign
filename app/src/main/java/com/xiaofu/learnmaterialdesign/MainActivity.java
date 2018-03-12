@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_bottom_sheet_dialog).setOnClickListener(this);
         findViewById(R.id.btn_app_bar_layout).setOnClickListener(this);
         findViewById(R.id.btn_collapsing_toolbar_layout).setOnClickListener(this);
+        findViewById(R.id.btn_fab_snack_bar).setOnClickListener(this);
     }
 
     @Override
@@ -32,6 +33,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_collapsing_toolbar_layout:
                 startActivity(new Intent(this, CollapsingToolbarActivity.class));
+                break;
+            case R.id.btn_fab_snack_bar:
+                startActivity(new Intent(this, FabSnackBarActivity.class));
                 break;
         }
     }
