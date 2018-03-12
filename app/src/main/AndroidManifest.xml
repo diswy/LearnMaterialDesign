@@ -20,7 +20,8 @@
         <activity android:name=".BottomSheetDialogActivity" />
         <activity android:name=".AppbarLayoutActivity" />
         <activity android:name=".CollapsingToolbarActivity" />
-        <activity android:name=".FabSnackBarActivity"></activity>
+        <activity android:name=".FabSnackBarActivity" />
+        <activity android:name=".TabLayoutActivity"></activity>
     </application>
 
 </manifest>
