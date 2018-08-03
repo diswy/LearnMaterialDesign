@@ -1,0 +1,68 @@
+
+首先，因为不同手机的触发机制不一样，所以对于某些手机，recent键没法屏蔽，已知的有魅族，锤子（少数），鲁比亚（某些）。对于已知测试的手机，home键，back键都能屏蔽。
+
+首先，屏蔽back比较简单，重写onKeyDown就可以了，直接上代码
+
+     @Override
+        public boolean onKeyDown(int keyCode, KeyEvent event) {       //重写返回键方法
+            if (keyCode == KeyEvent.KEYCODE_BACK) {
+                Toast.makeText(ForceActivity.this, "您点击了back键", Toast.LENGTH_SHORT).show();
+                 return false;
+                }
+                 return super.onKeyDown(keyCode, event);
+        }
+        
+        
+        
+下面就是屏蔽recent键，这种方法只对部分手机有效
+
+     @Override
+        protected void onPause() {         //重写recent键方法
+                super.onPause();
+                for (int j = 0; j < 50; j++){
+                    ActivityManager activityManager = (ActivityManager) getApplicationContext()
+                            .getSystemService(Context.ACTIVITY_SERVICE);
+                activityManager.moveTaskToFront(getTaskId(), 0);
+            }
+        }
+        
+        
+        
+         
+public class HomeReceiver extends BroadcastReceiver {
+    static public final String SYSTEM_DIALOG_REASON_KEY = "reason";
+    static public final String SYSTEM_DIALOG_REASON_GLOBAL_ACTIONS = "globalactions";
+    static public final String SYSTEM_DIALOG_REASON_RECENT_APPS = "recentapps";
+    static public final String SYSTEM_DIALOG_REASON_HOME_KEY = "homekey";
+    static public final String SYSTEM_DIALOG_REASON_ASSIST = "assist";
+    public void onReceive(Context arg0, Intent arg1) {
+ 
+        String action = arg1.getAction();
+        if (action.equals(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)) {                                           //按下Home键会发送ACTION_CLOSE_SYSTEM_DIALOGS的广播
+            String reason = arg1.getStringExtra(SYSTEM_DIALOG_REASON_KEY);
+            if (reason != null) {
+                if (reason.equals(SYSTEM_DIALOG_REASON_HOME_KEY)) {
+                        Intent intent = new Intent(arg0, ForceActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);       //点击home键无延时，且不会产生新的activity
+                        PendingIntent pendingIntent = PendingIntent.getActivity(arg0, 0,
+                                intent, 0);
+                        try {
+                            pendingIntent.send();
+ 
+                        } catch (PendingIntent.CanceledException e) {
+                            e.printStackTrace();
+                        }
+                }
+            }
+        }
+    }
+}
+
+
+</receiver>
+        <receiver android:name=".HomeReceiver" android:exported="true" android:enabled="true"/>
+        
+        
+        innerReceiver = new HomeReceiver();                                                        //注册广播
+            IntentFilter intentFilter = new IntentFilter(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
+            registerReceiver(innerReceiver, intentFilter);
